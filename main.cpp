@@ -124,7 +124,7 @@ float FloatType::divide( float lhs, float rhs )
 {
     if( rhs == 0.0f )
     {
-        cout << "You're doing floating point division by zero! ";
+        cout << "warning, floating point division by zero returns 'inf' ! ";
     }
     return lhs / rhs;
 }
@@ -154,6 +154,10 @@ double DoubleType::multiply( double lhs, double rhs )
 
 double DoubleType::divide( double lhs, double rhs )
 {
+     if( rhs == 0.0 )
+    {
+        cout << "warning, floating point division by zero returns 'inf' ! ";
+    }
     return lhs / rhs;
 }
 
@@ -185,13 +189,10 @@ int IntType::divide( int lhs, int rhs )
 {
     if( rhs == 0.0f )
     {
-        cout << "You're doing integer division by zero which is not allowed! Please choose a different number. ";
-        return 0; // is it right to return 0? otherwise it will return void
+        std::cout << "error, integer division by zero will crash the program!" << std::endl << "returning lhs" << std::endl;
+        return lhs;
     }
-    else
-    {
-        return lhs / rhs;
-    }
+    return lhs / rhs;
 }
 
 int main() 
